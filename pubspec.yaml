@@ -1,0 +1,5 @@
+name: pantone_colors
+dev_dependencies:
+  sass: ^1.32.13
+environment:
+  sdk: '>=2.10.0 <3.0.0'
