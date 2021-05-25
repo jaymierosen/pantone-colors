@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Range from './range';
-import RangeValue from './rangeValue';
+import RangeInput from './rangeInput';
 
-export default class slider extends Component {
+export default class Slider extends Component {
 
   render() {
     return (
       <div className="range-slider">
-			  <Range />
-        <RangeValue />
+			  <RangeInput min={2000} max={2021} />
 	  	</div>
     )
   }

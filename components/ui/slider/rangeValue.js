@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-
-export default class rangeValue extends Component {
+export default class RangeValue extends Component {
 
   render() {
     return (
-			  <div className="range-slider__value"><h4>0</h4></div>
+      <div value={minVal} className="range-slider__value"></div>
     )
   }
 };
