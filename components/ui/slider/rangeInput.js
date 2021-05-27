@@ -11,6 +11,7 @@ const RangeInput = ({ min, max }) => {
   return (
     <React.Fragment>
       <input
+        className="range-slider__range"
         type="range"
         min={min}
         max={max}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Description from '../description/description';
 
-export default class swatch extends Component {
+export default class Swatch extends Component {
 
   render() {
     return (

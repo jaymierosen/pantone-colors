@@ -9,7 +9,7 @@ function App() {
             <h1>Color of the Year: 2000 - 2020</h1>
             <div className="wrapper">
                 <Swatch />
-                <Slider />
+                {/* <Slider /> */}
             </div>
         </React.Fragment>
     );
