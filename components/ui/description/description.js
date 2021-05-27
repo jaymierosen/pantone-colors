@@ -48,9 +48,6 @@ const Description = () => {
           })
        )}
     </div>
-    <div className="range-slider">
-      <RangeInput min={2000} max={2021} />
-    </div>
     </>
   )
 };
