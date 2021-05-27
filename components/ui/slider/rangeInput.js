@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import RangeValue from "./rangeValue";
 
 const RangeInput = ({ min, max }) => {
   const [minVal, setMinVal] = useState(min);
@@ -18,7 +19,7 @@ const RangeInput = ({ min, max }) => {
         value={minVal}
         onChange={e => setMinVal(e.target.value)}
       />
-      <div className="range-slider__value">{minVal}</div>
+      <RangeValue value={minVal} />
     </React.Fragment>
   );
 };
