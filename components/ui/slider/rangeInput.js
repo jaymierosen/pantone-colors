@@ -17,7 +17,7 @@ const RangeInput = ({ min, max }) => {
         min={min}
         max={max}
         value={minVal}
-        onChange={e => setMinVal(e.target.value)}
+        onChange={(e) => setMinVal(e.target.value)}
       />
       <RangeValue value={minVal} />
     </React.Fragment>
@@ -26,7 +26,7 @@ const RangeInput = ({ min, max }) => {
 
 RangeInput.propTypes = {
   min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired
+  max: PropTypes.number.isRequired,
 };
 
 export default RangeInput;

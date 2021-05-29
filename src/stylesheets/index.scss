@@ -1,49 +1,55 @@
-// Pantone Colors
-// 2000
-$first: #9DB8D3;
 // Range Slider
-$main-font: Helvetica, sans-serif;
+$main-font: Helvetica,
+sans-serif;
 $range-width: 100% !default;
 $range-handle-color: #fff !default;
 $range-handle-color-hover: #fff !default;
 $range-handle-size: 20px !default;
-$range-track-color: rgba(255,255,255,0.6) !default;
+$range-track-color: rgba(255, 255, 255, 0.6) !default;
 $range-track-height: 10px !default;
 $range-label-color: #fff !default;
 $range-label-width: 60px !default;
+
 // Reset
 * {
+
 	&,
 	&:before,
 	&:after {
 		box-sizing: border-box;
 	}
 }
+
 body {
-	background: $first;
 	position: relative;
 	margin: 20px 0;
 	font-family: $main-font;
 	transition: background 1s ease-in-out;
 }
+
 div.wrapper {
 	margin: 20px auto;
 	max-width: 270px;
 }
+
 div.swatch {
 	border: 1px solid #fff;
-	box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.1);
 }
+
 div.color {
 	width: 270px;
 	height: 240px;
 }
+
 div.description {
 	background: white;
 	padding: 15px 10px 35px 10px;
 	position: relative;
 }
-h1, .range-slider__value {
+
+h1,
+.range-slider__value {
 	font-size: 21px;
 	color: rgba(255, 255, 255, 0.6);
 	font-weight: bold;
@@ -52,38 +58,47 @@ h1, .range-slider__value {
 	letter-spacing: 0.1em;
 	margin: 40px 0;
 }
+
 h1,
 h2,
 h3 {
 	line-height: 1.2em;
 }
+
 h1,
 h2 {
 	font-weight: bold;
 }
+
 h2,
 h3 {
 	margin: 0;
 }
+
 h2 {
 	font-size: 38px;
 }
+
 h3 {
 	font-size: 21px;
 	font-weight: 400;
 }
+
 sup {
 	font-size: 16px;
 	position: absolute;
 	top: 7px;
 }
+
 input {
 	width: 100%;
 }
+
 .range-slider {
 	width: $range-width;
 	margin: 25px 0 0 0%;
 }
+
 .range-slider__range {
 	-webkit-appearance: none;
 	width: 100%;
@@ -93,6 +108,7 @@ input {
 	// outline: none;
 	padding: 0;
 	margin: 0;
+
 	// Range Handle
 	&::-webkit-slider-thumb {
 		appearance: none;
@@ -102,11 +118,13 @@ input {
 		background: $range-handle-color;
 		cursor: pointer;
 		transition: background 0.25s ease-in-out;
+
 		&:hover {
 			background: $range-handle-color-hover;
 		}
 	}
 }
+
 // Range Label
 .range-slider__value {
 	font-size: 21px;
