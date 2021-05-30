@@ -1,70 +1,142 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import RangeInput from "../slider/rangeInput";
 
-const Description = () => {
-  const [state, setState] = useState([]);
-  const [hasError, setHasError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://pantone-colors.herokuapp.com/colors/")
-      .then((res) => res.json())
-      .then((data) => setState(data))
-      .catch((err) => {
-        err, setHasError(true);
-        setLoading(false);
-      });
-  }, []);
-
-  const [first, second, third, fourth, fifth] = state;
-
-  return (
-    <>
-      <div className="description">
-        <h2>
-          PANTONE<sup>&reg;</sup>
-        </h2>
-        {/* { loading ? "" : <div>Loading</div> } */}
-        {hasError ? (
-          <div>Error occured.</div>
-        ) : (
-          state.map((pantone) => {
-            {
-              switch (pantone.year) {
-                case 2000:
-                  <div>
-                    <h3>hellooooo</h3>
-                  </div>;
-                  break;
-                case 2001:
-                  <div>
-                    <h3 key={`hex-${pantone.hex}`} className="hex-number">
-                      {pantone.hex}
-                    </h3>
-                    <h3
-                      key={`swatch-${pantone.swatch}`}
-                      className="swatch-number"
-                    >
-                      {pantone.swatch}
-                    </h3>
-                    <h3
-                      key={`colorName-${pantone.colorName}`}
-                      className="color-name"
-                    >
-                      {pantone.colorName}
-                    </h3>
-                  </div>;
-                default:
-                  break;
-              }
-            }
-          })
-        )}
-      </div>
-    </>
-  );
+const Description = ({ currVal, first, second, third, fourth, fifth }) => {
+  let component;
+  switch (currVal) {
+    case "2000":
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: ${first.hex} }
+                  `,
+            }}
+          />
+          <h3 key={`hex-${first.hex}`} className="hex-number">
+            {first.hex}
+          </h3>
+          <h3 key={`swatch-${first.swatch}`} className="swatch-number">
+            {first.swatch}
+          </h3>
+          <h3 key={`colorName-${first.colorName}`} className="color-name">
+            {first.colorName}
+          </h3>
+        </div>
+      );
+      break;
+    case "2001":
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: ${second.hex} }
+                  `,
+            }}
+          />
+          <h3 key={`hex-${second.hex}`} className="hex-number">
+            {second.hex}
+          </h3>
+          <h3 key={`swatch-${second.swatch}`} className="swatch-number">
+            {second.swatch}
+          </h3>
+          <h3 key={`colorName-${second.colorNameName}`} className="color-name">
+            {second.colorName}
+          </h3>
+        </div>
+      );
+      break;
+    case "2002":
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: ${third.hex} }
+                  `,
+            }}
+          />
+          <h3 key={`hex-${third.hex}`} className="hex-number">
+            {third.hex}
+          </h3>
+          <h3 key={`swatch-${third.swatch}`} className="swatch-number">
+            {third.swatch}
+          </h3>
+          <h3 key={`colorName-${third.colorNameName}`} className="color-name">
+            {third.colorName}
+          </h3>
+        </div>
+      );
+      break;
+    case "2003":
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: ${fourth.hex} }
+                  `,
+            }}
+          />
+          <h3 key={`hex-${fourth.hex}`} className="hex-number">
+            {fourth.hex}
+          </h3>
+          <h3 key={`swatch-${fourth.swatch}`} className="swatch-number">
+            {fourth.swatch}
+          </h3>
+          <h3 key={`colorName-${fourth.colorNameName}`} className="color-name">
+            {fourth.colorName}
+          </h3>
+        </div>
+      );
+      break;
+    case "2004":
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: ${fifth.hex} }
+                  `,
+            }}
+          />
+          <h3 key={`hex-${fifth.hex}`} className="hex-number">
+            {fifth.hex}
+          </h3>
+          <h3 key={`swatch-${fifth.swatch}`} className="swatch-number">
+            {fifth.swatch}
+          </h3>
+          <h3 key={`colorName-${fifth.colorNameName}`} className="color-name">
+            {fifth.colorName}
+          </h3>
+        </div>
+      );
+      break;
+    default:
+      component = (
+        <div>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                  body { background-color: #9DB8D3 }
+                  `,
+            }}
+          />
+          <h3 key={`hex-#9DB8D3`} className="hex-number">
+            #9DB8D3
+          </h3>
+          <h3 key={`swatch-15-4020`} className="swatch-number">
+            15-4020
+          </h3>
+          <h3 key={`colorName-Cerulean`} className="color-name">
+            Cerulean
+          </h3>
+        </div>
+      );
+      break;
+  }
+  return component;
 };
 
 export default Description;

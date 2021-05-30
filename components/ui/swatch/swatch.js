@@ -1,14 +1,25 @@
-import React, { Component } from 'react';
-import Description from '../description/description';
+import React from "react";
+import Description from "../Description/Description";
 
-export default class Swatch extends Component {
-
-  render() {
-    return (
-      <div className="swatch">
-			<div className="color"></div>
-        <Description />
-		</div>
-    )
-  }
+const Swatch = ({ currVal, first, second, third, fourth, fifth }) => {
+  return (
+    <section className="swatch">
+      <section className="color"></section>
+      <section className="description">
+        <h2>
+          PANTONE<sup>&reg;</sup>
+        </h2>
+        <Description
+          first={first}
+          second={second}
+          third={third}
+          fourth={fourth}
+          fifth={fifth}
+          currVal={currVal}
+        />
+      </section>
+    </section>
+  );
 };
+
+export default Swatch;

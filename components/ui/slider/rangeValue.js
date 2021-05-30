@@ -1,7 +1,7 @@
 import React from "react";
 
-const RangeValue = ({ value }) => {
-  return <div className="range-slider__value">{value}</div>;
+const RangeValue = ({ currVal }) => {
+  return <section className="range-slider__value">{currVal}</section>;
 };
 
 export default RangeValue;

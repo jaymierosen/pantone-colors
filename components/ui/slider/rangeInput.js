@@ -1,32 +1,22 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
-import RangeValue from "./rangeValue";
+import React from "react";
+import RangeValue from "./RangeValue";
 
-const RangeInput = ({ min, max }) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
-  // const minValRef = useRef(min);
-  // const maxValRef = useRef(max);
-  // const range = useRef(null);
-
+const RangeInput = ({ currVal, setCurrVal }) => {
   return (
     <React.Fragment>
+      <label htmlFor="slider">Slider</label>
       <input
+        id="slider"
         className="range-slider__range"
         type="range"
-        min={min}
-        max={max}
-        value={minVal}
-        onChange={(e) => setMinVal(e.target.value)}
+        min={2000}
+        max={2021}
+        value={currVal}
+        onChange={(e) => setCurrVal(e.target.value)}
       />
-      <RangeValue value={minVal} />
+      <RangeValue currVal={currVal} />
     </React.Fragment>
   );
-};
-
-RangeInput.propTypes = {
-  min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
 };
 
 export default RangeInput;

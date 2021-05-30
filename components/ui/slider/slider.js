@@ -1,12 +1,17 @@
-import React, { Component } from "react";
-import RangeInput from "./rangeInput";
+import React from "react";
+import RangeInput from "./RangeInput";
 
-export default class Slider extends Component {
-  render() {
-    return (
-      <div className="range-slider">
-        <RangeInput min={2000} max={2021} />
-      </div>
-    );
-  }
-}
+const Slider = ({ currVal, setCurrVal, min, max }) => {
+  return (
+    <section className="range-slider">
+      <RangeInput
+        currVal={currVal}
+        min={min}
+        max={max}
+        setCurrVal={setCurrVal}
+      />
+    </section>
+  );
+};
+
+export default Slider;
