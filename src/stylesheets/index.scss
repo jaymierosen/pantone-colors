@@ -48,9 +48,10 @@ body {
 }
 
 h1,
-.range-slider__value {
+.range-slider__value,
+.loading {
 	font-size: 21px;
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 1);
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
@@ -83,10 +84,23 @@ h3 {
 	font-weight: 400;
 }
 
-sup {
+sup.heading-superscript {
+	position: static;
+	font-size: 11px;
+}
+
+sup.swatch-superscript {
 	font-size: 16px;
 	position: absolute;
 	top: 7px;
+}
+
+label {
+	font-size: 12px;
+	text-align: center;
+	display: block;
+	text-transform: uppercase;
+	margin: 10px 0;
 }
 
 input {
@@ -127,4 +141,57 @@ input {
 // Range Label
 .range-slider__value {
 	font-size: 21px;
+}
+
+// Loading
+// https://codepen.io/sfrisk/pen/pEPWva for inspiration
+.content-loading {
+	background: #9DB8D3;
+	animation: hue 10s linear infinite;
+	height: 100vh;
+}
+
+.loader {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	top: 50%;
+
+	&-letter {
+		text-transform: uppercase;
+		color: #fff;
+		font-weight: bold;
+		padding: 0 .2em;
+		font-size: 42px;
+		line-height: 1;
+		position: relative;
+		display: inline-block;
+		animation: bounce .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate;
+
+		@for $i from 0 through 6 {
+			&:nth-child(#{$i + 1}) {
+				animation-delay: $i * .05s;
+			}
+		}
+	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-1em);
+	}
+}
+
+@keyframes hue {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+
+	100% {
+		filter: hue-rotate(360deg);
+	}
 }

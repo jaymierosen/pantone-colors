@@ -7,7 +7,7 @@ const Swatch = ({ currVal, first, second, third, fourth, fifth }) => {
       <section className="color"></section>
       <section className="description">
         <h2>
-          PANTONE<sup>&reg;</sup>
+          PANTONE<sup className="swatch-superscript">&reg;</sup>
         </h2>
         <Description
           first={first}

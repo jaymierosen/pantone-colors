@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './reducer';
+import pantoneReducer from './reducer';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    pantoneColors: pantoneReducer,
   },
 });

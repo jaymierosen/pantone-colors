@@ -31,6 +31,10 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.jsx?$/, loader: 'babel',
+                use: ['babel-polyfill', './test.js'],
+            }
         ]
     },
     mode: 'development',

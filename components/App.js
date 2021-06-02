@@ -1,13 +1,19 @@
 import React from "react";
 
+// Babel
+require("babel-core/register");
+require("babel-polyfill");
+// src: https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined
+
 // Styles
 import "../src/stylesheets/index.scss";
 
 // Redux
-import { Counter } from "./Counter";
+// import { Counter } from "./Counter";
 
 // Components
-import Swatch from '../Components/UI/Swatch/Swatch';
+import Loading from "./UI/Loading/Loading";
+import Swatch from "./UI/Swatch/Swatch";
 import Slider from "./UI/slider/Slider";
 
 // Hooks
@@ -15,20 +21,31 @@ import { useState, useEffect } from "react";
 
 const App = ({ min, max }) => {
   const [state, setState] = useState([]);
-  const [hasError, setHasError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
+  const [pantoneLoaded, setPantoneLoaded] = useState(false);
   const [currVal, setCurrVal] = useState(2000);
 
+  const fetchPantone = async () => {
+    try {
+      let response = await fetch(
+        "https://pantone-colors.herokuapp.com/colors/"
+      );
+      let json = await response.json();
+      return { success: true, data: json };
+    } catch (error) {
+      console.log(error);
+      return { success: false };
+    }
+  };
+
   useEffect(() => {
-    setLoading(true);
-    fetch("https://pantone-colors.herokuapp.com/colors/")
-      .then((res) => res.json())
-      .then((data) => setState(data))
-      .catch((err) => {
-        err, setHasError(true);
-        setLoading(false);
-      });
+    (async () => {
+      setPantoneLoaded(false);
+      let res = await fetchPantone();
+      if (res.success) {
+        setState(res.data);
+        setPantoneLoaded(true);
+      }
+    })();
   }, []);
 
   const [
@@ -59,21 +76,34 @@ const App = ({ min, max }) => {
   max = "2021";
 
   return (
-    <React.Fragment>
-      <Counter />
-      <main className="wrapper">
-        <h1>{`Color of the Year: ${min} - ${max}`}</h1>
-        <Swatch
-          first={first}
-          second={second}
-          third={third}
-          fourth={fourth}
-          fifth={fifth}
-          currVal={currVal}
-        />
-        <Slider setCurrVal={setCurrVal} currVal={currVal} min={min} max={max} />
-      </main>
-    </React.Fragment>
+    <div>
+      {pantoneLoaded ? (
+        <React.Fragment>
+          {/* <Counter /> */}
+          <main>
+          <h1>{['Pantone', <sup className="heading-superscript">&reg;</sup>, ` Color of the Year: ${min} - ${max}`]}</h1>
+            <div className="wrapper">
+              <Swatch
+                first={first}
+                second={second}
+                third={third}
+                fourth={fourth}
+                fifth={fifth}
+                currVal={currVal}
+              />
+              <Slider
+                setCurrVal={setCurrVal}
+                currVal={currVal}
+                min={min}
+                max={max}
+              />
+            </div>
+          </main>
+        </React.Fragment>
+      ) : (
+        <Loading />
+      )}
+    </div>
   );
 };
 
