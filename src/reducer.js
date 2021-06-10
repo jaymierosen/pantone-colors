@@ -1,4 +1,4 @@
-const reducer = (state, action) => {
+export default function pantoneReducer(state, action) {
   switch (action.type) {
     case "ADD_CONTACT":
       return {
