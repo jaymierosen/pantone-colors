@@ -1,10 +1,5 @@
 import React from "react";
 
-// Babel
-// require("babel-core/register");
-// require("babel/polyfill");
-// src: https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined
-
 // Styles
 import "./index.scss";
 
