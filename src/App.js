@@ -27,7 +27,6 @@ const App = ({ min, max }) => {
       let json = await response.json();
       return { success: true, data: json };
     } catch (error) {
-      console.log(error);
       return { success: false };
     }
   };
@@ -60,11 +59,12 @@ const App = ({ min, max }) => {
     fourteenth,
     fifteenth,
     sixteenth,
-    seventeeth,
+    seventeenth,
     eighteenth,
-    ninteen,
-    twenty,
-    twentyfirst
+    ninteenth,
+    twentieth,
+    twentyfirst,
+    twentysecond
   ] = state;
 
   min = "2000";
@@ -95,11 +95,12 @@ const App = ({ min, max }) => {
                 fourteenth={fourteenth}
                 fifteenth={fifteenth}
                 sixteenth={sixteenth}
-                seventeeth={seventeeth}
+                seventeenth={seventeenth}
                 eighteenth={ eighteenth}
-                ninteen={ninteen}
-                twenty={twenty}
+                ninteenth={ninteenth}
+                twentieth={twentieth}
                 twentyfirst={twentyfirst}
+                twentysecond={twentysecond}
                 currVal={currVal}
               />
               <Slider

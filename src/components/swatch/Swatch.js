@@ -19,11 +19,12 @@ const Swatch = ({
   fourteenth,
   fifteenth,
   sixteenth,
-  seventeeth,
+  seventeenth,
   eighteenth,
-  ninteen,
-  twenty,
-  twentyfirst
+  ninteenth,
+  twentieth,
+  twentyfirst,
+  twentysecond
 }) => {
   return (
     <section className="swatch">
@@ -49,11 +50,12 @@ const Swatch = ({
           fourteenth={fourteenth}
           fifteenth={fifteenth}
           sixteenth={sixteenth}
-          seventeeth={seventeeth}
+          seventeenth={seventeenth}
           eighteenth={eighteenth}
-          ninteen={ninteen}
-          twenty={twenty}
+          ninteenth={ninteenth}
+          twentieth={twentieth}
           twentyfirst={twentyfirst}
+          twentysecond={twentysecond}
           currVal={currVal}
         />
       </section>

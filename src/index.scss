@@ -82,6 +82,9 @@ h2 {
 h3 {
 	font-size: 21px;
 	font-weight: 400;
+		&.swatch-hex {
+			text-transform: uppercase;
+		}
 }
 
 sup.heading-superscript {
@@ -96,11 +99,12 @@ sup.swatch-superscript {
 }
 
 label {
-	font-size: 12px;
 	text-align: center;
 	display: block;
 	text-transform: uppercase;
 	margin: 10px 0;
+	letter-spacing: 0.1em;
+	color: $range-handle-color;
 }
 
 input {

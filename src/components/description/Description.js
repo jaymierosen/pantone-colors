@@ -22,11 +22,12 @@ const Description = ({ currVal,
   fourteenth,
   fifteenth,
   sixteenth,
-  seventeeth,
+  seventeenth,
   eighteenth,
-  ninteen,
-  twenty,
-  twentyfirst }) => {
+  ninteenth,
+  twentieth,
+  twentyfirst,
+  twentysecond }) => {
   return (
     <div>
       <ColorHex
@@ -46,11 +47,12 @@ const Description = ({ currVal,
         fourteenth={fourteenth}
         fifteenth={fifteenth}
         sixteenth={sixteenth}
-        seventeeth={seventeeth}
+        seventeenth={seventeenth}
         eighteenth={eighteenth}
-        ninteen={ninteen}
-        twenty={twenty}
+        ninteenth={ninteenth}
+        twentieth={twentieth}
         twentyfirst={twentyfirst}
+        twentysecond={twentysecond}
         currVal={currVal}
       />
       <ColorCode
@@ -70,11 +72,12 @@ const Description = ({ currVal,
         fourteenth={fourteenth}
         fifteenth={fifteenth}
         sixteenth={sixteenth}
-        seventeeth={seventeeth}
+        seventeenth={seventeenth}
         eighteenth={eighteenth}
-        ninteen={ninteen}
-        twenty={twenty}
+        ninteenth={ninteenth}
+        twentieth={twentieth}
         twentyfirst={twentyfirst}
+        twentysecond={twentysecond}
         currVal={currVal}
       />
       <ColorName
@@ -94,11 +97,12 @@ const Description = ({ currVal,
         fourteenth={fourteenth}
         fifteenth={fifteenth}
         sixteenth={sixteenth}
-        seventeeth={seventeeth}
+        seventeenth={seventeenth}
         eighteenth={eighteenth}
-        ninteen={ninteen}
-        twenty={twenty}
+        ninteenth={ninteenth}
+        twentieth={twentieth}
         twentyfirst={twentyfirst}
+        twentysecond={twentysecond}
         currVal={currVal}
       />
     </div>
