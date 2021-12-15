@@ -3,9 +3,6 @@ import React from "react";
 // Styles
 import "./index.scss";
 
-// Redux
-// import { Counter } from "./Counter";
-
 // Components
 import Loading from "./components/loading/Loading";
 import Swatch from "./components/swatch/Swatch";
@@ -15,9 +12,12 @@ import Slider from "./components/slider/Slider";
 import { useState, useEffect } from "react";
 
 const App = ({ min, max }) => {
-  const [state, setState] = useState([]);
   const [pantoneLoaded, setPantoneLoaded] = useState(false);
-  const [currVal, setCurrVal] = useState(2000);
+  const [currYear, setCurrYear] = useState("2000");
+  const [pantoneData, setPantoneData] = useState([]);
+  const [currentPantone, setCurrentPantone] = useState({});
+
+  // working with active state
 
   const fetchPantone = async () => {
     try {
@@ -36,76 +36,48 @@ const App = ({ min, max }) => {
       setPantoneLoaded(false);
       let res = await fetchPantone();
       if (res.success) {
-        setState(res.data);
+        setPantoneData(res.data);
         setPantoneLoaded(true);
       }
     })();
   }, []);
 
-  const [
-    first,
-    second,
-    third,
-    fourth,
-    fifth,
-    sixth,
-    seventh,
-    eighth,
-    ninth,
-    tenth,
-    eleventh,
-    twelfth,
-    thirteenth,
-    fourteenth,
-    fifteenth,
-    sixteenth,
-    seventeenth,
-    eighteenth,
-    ninteenth,
-    twentieth,
-    twentyfirst,
-    twentysecond
-  ] = state;
+  useEffect(() => {
+    if (pantoneLoaded) {
+      const theCurrentPantone = pantoneData.find(
+        // making sure same data type
+        (pantone) => pantone.year.toString() === currYear.toString()
+      );
+
+      setCurrentPantone(theCurrentPantone);
+    }
+
+    // eslint-disable-next-line
+  }, [currYear, pantoneLoaded]);
 
   min = "2000";
-  max = "2021";
+  max = "2022";
 
   return (
     <div>
-      {pantoneLoaded ? (
+      {pantoneLoaded && currentPantone ? (
         <React.Fragment>
           {/* <Counter /> */}
           <main>
-          <h1>{['Pantone', <sup key={`sup`} className="heading-superscript">&reg;</sup>, ` Color of the Year: ${min} - ${max}`]}</h1>
+            <h1>
+              {[
+                "Pantone",
+                <sup key={`sup`} className="heading-superscript">
+                  &reg;
+                </sup>,
+                ` Color of the Year: ${min} - ${max}`,
+              ]}
+            </h1>
             <div className="wrapper">
-              <Swatch
-                first={first}
-                second={second}
-                third={third}
-                fourth={fourth}
-                fifth={fifth}
-                sixth={sixth}
-                seventh={seventh}
-                eighth={eighth}
-                ninth={ninth}
-                tenth={tenth}
-                eleventh={eleventh}
-                twelfth={twelfth}
-                thirteenth={thirteenth}
-                fourteenth={fourteenth}
-                fifteenth={fifteenth}
-                sixteenth={sixteenth}
-                seventeenth={seventeenth}
-                eighteenth={ eighteenth}
-                ninteenth={ninteenth}
-                twentieth={twentieth}
-                twentyfirst={twentyfirst}
-                twentysecond={twentysecond}
-                currVal={currVal}
-              />
+              <Swatch currentPantone={currentPantone} />
               <Slider
-                setCurrVal={setCurrVal}
-                currVal={currVal}
+                setCurrYear={setCurrYear}
+                currYear={currYear}
                 min={min}
                 max={max}
               />
