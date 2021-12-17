@@ -1,7 +1,11 @@
 import React from "react";
 import RangeValue from "./RangeValue";
 
-const RangeInput = ({ min, max, currYear, setCurrYear }) => {
+const RangeInput = ({ setIsMounted, isMounted, min, max, currYear, setCurrYear }) => {
+  const handleChange = (e) => {
+    setIsMounted(!isMounted);
+    setCurrYear(e.target.value);
+  }
   return (
     <React.Fragment>
       <label htmlFor="slider">Slider</label>
@@ -12,7 +16,7 @@ const RangeInput = ({ min, max, currYear, setCurrYear }) => {
         min={min}
         max={max}
         value={currYear}
-        onChange={(e) => setCurrYear(e.target.value)}
+        onChange={handleChange}
       />
       <RangeValue currYear={currYear} />
     </React.Fragment>

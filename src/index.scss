@@ -1,14 +1,14 @@
 // Range Slider
 $main-font: Helvetica,
 sans-serif;
-$range-width: 100% !default;
-$range-handle-color: #fff !default;
-$range-handle-color-hover: #fff !default;
+$range-width: 100%;
+$range-handle-color: #000;
+$range-handle-color-hover: #000;
 $range-handle-size: 20px !default;
-$range-track-color: rgba(255, 255, 255, 0.6) !default;
-$range-track-height: 10px !default;
-$range-label-color: #fff !default;
-$range-label-width: 60px !default;
+$range-track-color: rgba(0, 0, 0, 0.3);
+$range-track-height: 10px;
+$range-label-color: #000;
+$range-label-width: 60px;
 
 // Reset
 * {
@@ -20,10 +20,29 @@ $range-label-width: 60px !default;
 	}
 }
 
+.fadeIn {
+	animation: fadein 500ms;
+	opacity: 1;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 body {
 	position: relative;
-	margin: 20px 0;
+	margin: 0;
 	font-family: $main-font;
+	background: white;
+}
+
+main {
 	transition: background 1s ease-in-out;
 }
 
@@ -51,7 +70,7 @@ h1,
 .range-slider__value,
 .loading {
 	font-size: 21px;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(0, 0, 0);
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
@@ -80,11 +99,12 @@ h2 {
 }
 
 h3 {
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 400;
-		&.swatch-hex {
-			text-transform: uppercase;
-		}
+
+	&.swatch-hex {
+		text-transform: uppercase;
+	}
 }
 
 sup.heading-superscript {
@@ -122,7 +142,6 @@ input {
 	height: $range-track-height;
 	border-radius: 5px;
 	background: $range-track-color;
-	// outline: none;
 	padding: 0;
 	margin: 0;
 
@@ -134,11 +153,6 @@ input {
 		border-radius: 50%;
 		background: $range-handle-color;
 		cursor: pointer;
-		transition: background 0.25s ease-in-out;
-
-		&:hover {
-			background: $range-handle-color-hover;
-		}
 	}
 }
 
@@ -148,7 +162,7 @@ input {
 }
 
 // Loading
-// https://codepen.io/sfrisk/pen/pEPWva for inspiration
+// credit: https://codepen.io/sfrisk/pen/pEPWva for inspiration
 .content-loading {
 	background: #9DB8D3;
 	animation: hue 10s linear infinite;
@@ -177,6 +191,48 @@ input {
 				animation-delay: $i * .05s;
 			}
 		}
+	}
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 25% 50%;
+	}
+
+	50% {
+		background-position: 75% 50%;
+	}
+
+	100% {
+		background-position: 25% 50%;
+	}
+}
+
+@-moz-keyframes gradient {
+	0% {
+		background-position: 25% 50%;
+	}
+
+	50% {
+		background-position: 75% 50%;
+	}
+
+	100% {
+		background-position: 25% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 25% 50%;
+	}
+
+	50% {
+		background-position: 75% 50%;
+	}
+
+	100% {
+		background-position: 25% 50%;
 	}
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import RangeInput from "./RangeInput";
 
-const Slider = ({ currYear, setCurrYear, min, max }) => {
+const Slider = ({ setIsMounted, isMounted, currYear, setCurrYear, min, max }) => {
   return (
     <section className="range-slider">
       <RangeInput
@@ -9,6 +9,8 @@ const Slider = ({ currYear, setCurrYear, min, max }) => {
         min={min}
         max={max}
         setCurrYear={setCurrYear}
+        setIsMounted={setIsMounted}
+        isMounted={isMounted}
       />
     </section>
   );

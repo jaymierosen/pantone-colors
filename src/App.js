@@ -1,4 +1,5 @@
 import React from "react";
+import useMountTransition from "./useMountTransition";
 
 // Styles
 import "./index.scss";
@@ -16,6 +17,8 @@ const App = ({ min, max }) => {
   const [currYear, setCurrYear] = useState("2000");
   const [pantoneData, setPantoneData] = useState([]);
   const [currentPantone, setCurrentPantone] = useState({});
+  const [isMounted, setIsMounted] = useState(true);
+  const hasTransitionedIn = useMountTransition(isMounted, 1000);
 
   // working with active state
 
@@ -48,7 +51,6 @@ const App = ({ min, max }) => {
         // making sure same data type
         (pantone) => pantone.year.toString() === currYear.toString()
       );
-
       setCurrentPantone(theCurrentPantone);
     }
 
@@ -62,7 +64,6 @@ const App = ({ min, max }) => {
     <div>
       {pantoneLoaded && currentPantone ? (
         <React.Fragment>
-          {/* <Counter /> */}
           <main>
             <h1>
               {[
@@ -74,12 +75,14 @@ const App = ({ min, max }) => {
               ]}
             </h1>
             <div className="wrapper">
-              <Swatch currentPantone={currentPantone} />
+              <Swatch isMounted={isMounted} hasTransitionedIn={hasTransitionedIn} currentPantone={currentPantone} />
               <Slider
                 setCurrYear={setCurrYear}
                 currYear={currYear}
                 min={min}
                 max={max}
+                setIsMounted={setIsMounted}
+                isMounted={isMounted}
               />
             </div>
           </main>
