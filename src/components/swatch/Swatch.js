@@ -3,7 +3,7 @@ import Description from "../description/Description";
 
 const Swatch = ({ currentPantone }) => {
   return (
-    <section className="swatch">
+    <section className="swatch fadeIn">
       <section className="color"
         style={{
           background: `linear-gradient(-45deg, ${currentPantone.hex} 37%, ${

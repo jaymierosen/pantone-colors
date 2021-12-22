@@ -21,8 +21,7 @@ $range-label-width: 60px;
 }
 
 .fadeIn {
-	animation: fadein 500ms;
-	opacity: 1;
+	animation: fadein 1500ms;
 }
 
 @keyframes fadein {
@@ -42,16 +41,13 @@ body {
 	background: white;
 }
 
-main {
-	transition: background 1s ease-in-out;
-}
-
 .wrapper {
 	margin: 20px auto;
 	max-width: 270px;
 }
 
 .swatch {
+	opacity: 1;
 	box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.1);
 }
 
