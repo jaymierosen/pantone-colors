@@ -1,9 +1,8 @@
 import React from "react";
 import RangeValue from "./RangeValue";
 
-const RangeInput = ({ setIsMounted, isMounted, min, max, currYear, setCurrYear }) => {
+const RangeInput = ({ min, max, currYear, setCurrYear }) => {
   const handleChange = (e) => {
-    setIsMounted(!isMounted);
     setCurrYear(e.target.value);
   }
   return (
