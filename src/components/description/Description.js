@@ -5,8 +5,9 @@ import ColorCode from "./ColorCode";
 import ColorHex from "./ColorHex";
 import ColorName from "./ColorName";
 
-const Description = ({ currentPantone }) => {
-  const { hex, hex2, swatch, colorName } = currentPantone;
+const Description = ({ currentPantone, slide }) => {
+  // const { hex, hex2, swatch, colorName } = currentPantone;
+  const { hex, hex2, swatch, colorName } = slide;
 
   return (
     <div>

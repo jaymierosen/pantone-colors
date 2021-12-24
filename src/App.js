@@ -6,7 +6,6 @@ import "./index.scss";
 // Components
 import Loading from "./components/loading/Loading";
 import Swatch from "./components/swatch/Swatch";
-import Slider from "./components/slider/Slider";
 
 // Hooks
 import { useState, useEffect } from "react";
@@ -72,13 +71,7 @@ const App = ({ min, max }) => {
               ]}
             </h1>
             <div className="wrapper">
-              <Swatch currentPantone={currentPantone} />
-              <Slider
-                setCurrYear={setCurrYear}
-                currYear={currYear}
-                min={min}
-                max={max}
-              />
+              <Swatch pantoneData={pantoneData} currentPantone={currentPantone} />
             </div>
           </main>
         </React.Fragment>
