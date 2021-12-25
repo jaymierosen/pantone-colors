@@ -6,9 +6,7 @@ const Swatch = ({ currentPantone, hasTransitionedIn, isMounted }) => {
     <section className="swatch">
       {(hasTransitionedIn || isMounted) && (
         <section
-          className={`color ${hasTransitionedIn} ${
-            isMounted && "fadeIn"
-          }`}
+          className={"color " + (hasTransitionedIn && isMounted ? 'fadeIn' : 'fadeOut')}
           style={{
             background: `linear-gradient(-45deg, ${currentPantone.hex} 37%, ${
               currentPantone.hex2 || currentPantone.hex
@@ -20,7 +18,9 @@ const Swatch = ({ currentPantone, hasTransitionedIn, isMounted }) => {
         <h2>
           PANTONE<sup className="swatch-superscript">&reg;</sup>
         </h2>
-        <Description currentPantone={currentPantone} />
+        {(hasTransitionedIn || isMounted) && (
+        <Description isMounted={isMounted} hasTransitionedIn={hasTransitionedIn} currentPantone={currentPantone} />
+        )}
       </section>
     </section>
   );
