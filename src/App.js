@@ -1,5 +1,4 @@
 import React from "react";
-import useMountTransition from "./useMountTransition";
 
 // Styles
 import "./index.scss";
@@ -17,10 +16,6 @@ const App = ({ min, max }) => {
   const [currYear, setCurrYear] = useState("2000");
   const [pantoneData, setPantoneData] = useState([]);
   const [currentPantone, setCurrentPantone] = useState({});
-  const [isMounted, setIsMounted] = useState(true);
-  const hasTransitionedIn = useMountTransition(isMounted, 1000);
-
-  // working with active state
 
   const fetchPantone = async () => {
     try {
@@ -75,14 +70,12 @@ const App = ({ min, max }) => {
               ]}
             </h1>
             <div className="wrapper">
-              <Swatch isMounted={isMounted} hasTransitionedIn={hasTransitionedIn} currentPantone={currentPantone} />
+              <Swatch currentPantone={currentPantone} />
               <Slider
                 setCurrYear={setCurrYear}
                 currYear={currYear}
                 min={min}
                 max={max}
-                setIsMounted={setIsMounted}
-                isMounted={isMounted}
               />
             </div>
           </main>
