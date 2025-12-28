@@ -56,7 +56,7 @@ const App = ({ min, max }) => {
   }, [currYear, pantoneLoaded]);
 
   min = "2000";
-  max = "2022";
+  max = "2026";
 
   return (
     <div>
