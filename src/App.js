@@ -23,7 +23,7 @@ const App = ({ min, max }) => {
     try {
       let response = await fetch(
         // "https://pantone-colors.herokuapp.com/colors/"
-        "https://pantone-colors-f8a9abe25d91.herokuapp.com/"
+        "https://pantone-colors-f8a9abe25d91.herokuapp.com/colors"
       );
       let json = await response.json();
       return { success: true, data: json };
